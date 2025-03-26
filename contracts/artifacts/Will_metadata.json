@@ -32,121 +32,31 @@
 				"name": "addBeneficiary",
 				"outputs": [
 					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "fundContract",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getAllBalances",
-				"outputs": [
-					{
-						"internalType": "uint256[]",
-						"name": "values",
-						"type": "uint256[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					}
-				],
-				"name": "getBalance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "balance",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getTotalPercentage",
-				"outputs": [
-					{
 						"internalType": "uint8",
-						"name": "",
+						"name": "percent",
 						"type": "uint8"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getWillBalance",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getPercentage",
 				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "payoutBeneficiaries",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					}
-				],
-				"name": "removeBeneficiary",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					},
 					{
 						"internalType": "uint8",
 						"name": "percentage",
 						"type": "uint8"
 					}
 				],
-				"name": "updateBeneficiary",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -163,7 +73,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Will.sol": "Will"
+			"contracts/initial.sol": "Will"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -177,12 +87,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Will.sol": {
-			"keccak256": "0x93190688acf6c15444220bbbd9a742c715d24146ea4cdb23f243e333f718d090",
+		"contracts/initial.sol": {
+			"keccak256": "0x0240c031f96bf2e97a74118d0eeaa75abca8c96da9737bb83efcace03eebf1f2",
 			"license": "SEE LICENSE IN LICENSE",
 			"urls": [
-				"bzz-raw://c347eed6ab1a7311dc5bde825da5e935fb4e74cb82b58d8ae07ba49b9527c8e4",
-				"dweb:/ipfs/QmQWgWdx1YyFnjoTr2ZGdRVqLhQT8vtaWDo6NoJ3do4FaS"
+				"bzz-raw://8abe0fd5ae2af47d57388574ba56f62274ff918eda27a567ef7fd0e71f22d8fd",
+				"dweb:/ipfs/QmYkVUeehFoNVw8K1JAonjt5dQwve65boqByrCqq8BFopq"
 			]
 		}
 	},
