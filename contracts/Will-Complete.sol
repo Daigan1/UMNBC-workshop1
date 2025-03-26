@@ -34,33 +34,8 @@ contract Will {
         _;
     }
 
-    function updateUser(address user, uint8 percentage) private {
-        balances[user].percentage = percentage;
-        beneficiaries[balances[user].index].percentage = percentage;
-    }
 
-    function percentageToAmount(
-        uint8 percentage
-    ) private view returns (uint256 newAmount) {
-        return (willBalance * percentage) / 100;
-    }
-
-    function removeIndex(uint index) private {
-
-        for (uint i = index; i < (currIndex - 1); i++) {
-            beneficiaries[i] = beneficiaries[i + 1];
-            beneficiaries[i].index -= 1;
-        }
-
-        currIndex-=1;
-    }
-
-    function getBalance(address user) public view returns (uint256 balance) {
-        uint8 percent = balances[user].percentage;
-        return percentageToAmount(percent);
-    }
-
-    function addBeneficiary(
+      function addBeneficiary(
         address user,
         uint8 percentage
     ) public isOwner(percentage) returns (uint256 amount) {
@@ -119,9 +94,26 @@ contract Will {
         }
     }
 
+    
     function fundContract() public payable isOwner(0) {
         willBalance = address(this).balance;
     }
+
+        function getBalance(address user) public view returns (uint256 balance) {
+        uint8 percent = balances[user].percentage;
+        return percentageToAmount(percent);
+    }
+
+       function getAllBalances() public view returns (uint256[] memory values) {
+		uint256[] memory moneyValues = new uint256[](currIndex);
+        for (uint256 i = 0; i < currIndex; i++) {
+            Beneficiary memory beneficiary = beneficiaries[i];
+            moneyValues[i] = getBalance(beneficiary.user);
+        }
+		return moneyValues;
+    }
+
+    
 
     function payoutBeneficiaries() public isOwner(0) {
         require(
@@ -142,6 +134,30 @@ contract Will {
         willBalance = 0;
     }
 
+
+    // helper functions
+    function updateUser(address user, uint8 percentage) private {
+        balances[user].percentage = percentage;
+        beneficiaries[balances[user].index].percentage = percentage;
+    }
+
+    function percentageToAmount(
+        uint8 percentage
+    ) private view returns (uint256 newAmount) {
+        return (willBalance * percentage) / 100;
+    }
+
+    function removeIndex(uint index) private {
+
+        for (uint i = index; i < (currIndex - 1); i++) {
+            beneficiaries[i] = beneficiaries[i + 1];
+            beneficiaries[i].index -= 1;
+        }
+
+        currIndex-=1;
+    }
+
+
 	function getTotalPercentage() public view returns (uint8) {
 		return totalPercentage;
 	}
@@ -150,12 +166,5 @@ contract Will {
         return address(this).balance;
     }
 
-    function getAllBalances() public view returns (uint256[] memory values) {
-		uint256[] memory moneyValues = new uint256[](currIndex);
-        for (uint256 i = 0; i < currIndex; i++) {
-            Beneficiary memory beneficiary = beneficiaries[i];
-            moneyValues[i] = getBalance(beneficiary.user);
-        }
-		return moneyValues;
-    }
+ 
 }

@@ -34,6 +34,46 @@ contract Will {
         _;
     }
 
+    function addBeneficiary(
+        address user,
+        uint8 percentage
+    ) public isOwner(percentage) returns (uint256 amount) {
+      
+		
+    }
+
+     function removeBeneficiary(address user) public isOwner(0) {
+
+       }
+
+         function updateBeneficiary(
+        address user,
+        uint8 percentage
+    ) public isOwner(percentage) returns (uint256 amount) {
+        
+    }
+
+
+    function fundContract() public payable isOwner(0) {
+        willBalance = address(this).balance;
+    }
+
+        function getBalance(address user) public view returns (uint256 balance) {
+       
+    }
+    
+ function getAllBalances() public view returns (uint256[] memory values) {
+		
+    }
+
+   function payoutBeneficiaries() public isOwner(0) {
+        
+    }
+
+
+
+
+ // helper functions here
     function updateUser(address user, uint8 percentage) private {
       
     }
@@ -46,40 +86,8 @@ contract Will {
 
     function removeIndex(uint index) private {
 
-        
     }
 
-    function getBalance(address user) public view returns (uint256 balance) {
-       
-    }
-
-    function addBeneficiary(
-        address user,
-        uint8 percentage
-    ) public isOwner(percentage) returns (uint256 amount) {
-      
-		
-    }
-
-    function removeBeneficiary(address user) public isOwner(0) {
-       }
-
-    function updateBeneficiary(
-        address user,
-        uint8 percentage
-    ) public isOwner(percentage) returns (uint256 amount) {
-        
-    }
-
-  
- 
-    function fundContract() public payable isOwner(0) {
-        willBalance = address(this).balance;
-    }
-
-    function payoutBeneficiaries() public isOwner(0) {
-        
-    }
 
 	function getTotalPercentage() public view returns (uint8) {
 	
@@ -89,7 +97,5 @@ contract Will {
       
     }
 
-    function getAllBalances() public view returns (uint256[] memory values) {
-		
-    }
+   
 }
