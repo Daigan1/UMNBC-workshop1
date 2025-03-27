@@ -127,11 +127,11 @@ contract Will {
                 percentageToAmount(beneficiary.percentage)
             );
                 updateUser(beneficiary.user, 0);
-                removeIndex(beneficiary.index);
         }
 
         totalPercentage = 0;
         willBalance = 0;
+	currIndex = 0;
     }
 
 
